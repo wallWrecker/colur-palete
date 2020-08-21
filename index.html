@@ -16,16 +16,14 @@
           <h3 class="title">color Pallete</h3>
         </div>
         <div class="level-right">
-          <p class="level-item">Link one</p>
-          <p class="level-item">Link two</p>
+          <p class="level-item">About</p>
         </div>
       </div>
       <div class="columns my-3 mx-3 max-view">
         <!-- Color Pallete Pane -->
         <div class="column is-one-quarter has-background-light">
-          <!-- Form input -->
-
           <label class="label" for="">Add color pallete</label>
+          <!-- Form input -->
           <div class="field has-addons">
             <div class="control is-expanded">
               <input
@@ -35,19 +33,17 @@
               />
             </div>
             <div class="control">
-              <button class="button is-info">Add</button>
+              <button id="add-button" class="button is-info">Add</button>
             </div>
           </div>
 
           <!-- Pallete container -->
-          <div>
-            <p class="small has-text-centered">Pallete 1</p>
-            <p class="small has-text-centered">Pallete 2</p>
-            <p class="small has-text-centered">Pallete 3</p>
+          <div id="pallete-container">
+            <!-- Javascript would generate this. -->
           </div>
         </div>
         <!-- Color Pallete Background Pane-->
-        <div id="background-div" class="column" style="background: chocolate;">
+        <div id="background-div" class="column">
           <div
             class="section is-large has-text-centered"
             style="background: transparent;"
