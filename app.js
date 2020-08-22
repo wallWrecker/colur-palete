@@ -1,5 +1,6 @@
 let palleteText = document.getElementById("pallete-text");
 let backgroundDiv = document.getElementById("background-div");
+let codeInput = document.getElementById("code-input");
 let addButton = document.getElementById("add-button");
 // let textNode = backgroundDiv.style.background;
 
@@ -21,6 +22,7 @@ function setBackgroundColor(element, color) {
 let collection = {};
 let counter = 0;
 
+codeInput.value = "Hi There!";
 // colors.forEach((elem) => {
 //   let propName = "color" + counter;
 //   collection[propName] = elem;
@@ -30,7 +32,7 @@ let counter = 0;
 function createSelection(color) {
   let p = document.createElement("p");
 
-  let neededClass = ["subtitle", "has-text-centered", "px-2", "py-2"];
+  let neededClass = ["has-text-centered", "px-1", "py-1"];
   neededClass.forEach((ele) => {
     p.classList.add(ele);
   });
@@ -45,22 +47,36 @@ function createSelection(color) {
 
 function addToCollection(color) {
   let propName = "color" + counter;
+
   collection[propName] = color;
   counter++;
+
   console.log(propName);
 }
 
 function loadUpItems() {
   for (let item in collection) {
     if (collection.hasOwnProperty(item)) {
-      console.log(collection[item]);
+      palleteContainer.appendChild(createSelection(collection[item]));
     } else {
       console.error("Failed to retrieved the Rest.");
       return;
     }
   }
 }
+
+function loadLastItem() {
+  let lastItem = Object.keys(collection)[Object.keys(collection).length - 1];
+  palleteContainer.appendChild(createSelection(collection[lastItem]));
+}
+
 addButton.addEventListener("click", function () {
-  addToCollection("green");
-  loadUpItems();
+  addToCollection(codeInput.value + " " + counter);
+  loadLastItem();
 });
+
+/*Tomorrow Task: Reviewing Input Capability */
+
+// addButton.addEventListener("dblclick", function () {
+//   loadLastItem();
+// });
