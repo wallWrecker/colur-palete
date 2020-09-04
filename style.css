@@ -1,7 +1,15 @@
-.max-view {
-  height: 100vh;
+.color_preview {
+  height: 50vh;
+  line-height: 50vh;
+  background: gray;
+  color: black;
+  text-align: center;
+  box-shadow: 2px 2px 5px gray;
 }
 
-#pallete-text {
-  line-height: 5em;
+.color-house {
+	padding: 1px;
+	border:1px solid black;
+	border-radius: 5px;
+	box-shadow: 1px 2px 3px black;
 }
