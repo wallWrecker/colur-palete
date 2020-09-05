@@ -1,6 +1,6 @@
 .color_preview {
-  height: 50vh;
-  line-height: 50vh;
+  height: 30vh;
+  line-height: 30vh;
   background: gray;
   color: black;
   text-align: center;
@@ -9,6 +9,6 @@
 
 .color_house {
   padding: 1px;
-  border: 1px solid black;
-  border-radius: 5px;
+  border: 1px solid gray;
+  border-radius: 100px;
 }

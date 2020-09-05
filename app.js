@@ -2,10 +2,10 @@ let palleteText = document.getElementById("pallete-text");
 let backgroundDiv = document.getElementById("background-div");
 let codeInput = document.getElementById("code-input");
 let addButton = document.getElementById("add-button");
-// let textNode = backgroundDiv.style.background;
+let sample = document.getElementById("display-button");
 
 let palleteContainer = document.getElementById("pallete-container");
-let colors = ["cffffe", "f9f7d9", "fce2ce", "ffc1f3"];
+let colors = ["cffffe", "f9f7d9", "fce2ce", "ffc1f3", "5F4B8BFF", "E69A8DFF"];
 
 // let x = setInterval(() => {
 //   let random = Math.floor(Math.random() * Math.floor(colors.length));
@@ -19,39 +19,21 @@ function setBackgroundColor(element, color) {
   return;
 }
 
-let collection = {};
-let counter = 0;
+let collection = { a: "Red", b: "Blue" };
 
-codeInput.value = "Hi There!";
+let counter = Object.keys(collection).length;
+
 // colors.forEach((elem) => {
 //   let propName = "color" + counter;
 //   collection[propName] = elem;
 //   counter++;
 // });
 
-function createSelection(color) {
-  let p = document.createElement("p");
-
-  let neededClass = ["has-text-centered", "px-1", "py-1"];
-  neededClass.forEach((ele) => {
-    p.classList.add(ele);
-  });
-
-  p.addEventListener("click", function () {
-    backgroundDiv.style.background = color;
-  });
-
-  p.innerHTML = color;
-  return p;
-}
-
 function addToCollection(color) {
   let propName = "color" + counter;
 
   collection[propName] = color;
   counter++;
-
-  console.log(propName);
 }
 
 function loadUpItems() {
@@ -66,17 +48,34 @@ function loadUpItems() {
 }
 
 function loadLastItem() {
-  let lastItem = Object.keys(collection)[Object.keys(collection).length - 1];
-  palleteContainer.appendChild(createSelection(collection[lastItem]));
+  // let lastItem = Object.keys(collection)[Object.keys(collection).length - 1];
+  // palleteContainer.appendChild(createSelection(collection[lastItem]));
 }
 
-addButton.addEventListener("click", function () {
-  addToCollection(codeInput.value + " " + counter);
-  loadLastItem();
-});
-
-/*Tomorrow Task: Reviewing Input Capability */
+// addButton.addEventListener("click", function () {
+//   addToCollection(codeInput.value);
+//   loadLastItem();
+//   console.log(collection);
+// });
 
 // addButton.addEventListener("dblclick", function () {
-//   loadLastItem();
+//   console.log(collection);
 // });
+
+// Joke Snippets............
+// let key = Object.keys(collection).length;
+// if (key > 5) {
+//   throw "Congratulations!";
+// } else {
+//   throw "Add more item on the collection!";
+//   console.log(`Current: ${Object.keys(collection).length}`);
+// }
+
+import {
+  column_container,
+  createChildOfColumn,
+} from "./my_components/generate_color_selection.js";
+
+colors.forEach((ele) => {
+  column_container.appendChild(createChildOfColumn(ele, ele));
+});
